@@ -1,4 +1,5 @@
 
+
 export type LinkEl = {
   label: string, 
   path: string,
@@ -7,14 +8,16 @@ export type LinkEl = {
 export interface menuLinkProps {
   links: LinkEl[],
   isVertical: boolean,
-  gapNumber: 6 | 12 | 24 | 36 | 48
+  gapNumber: 6 | 12 | 24 | 36 | 48,
+  active: number,
+  setActive: (active: number) => void
 }
 
-function MenuLinks({links, isVertical, gapNumber}:menuLinkProps){
+function MenuLinks({links, isVertical, gapNumber, active, setActive}:menuLinkProps){
   
   const orientation = isVertical ? 'flex-col' : 'flex-row'
 
- 
+  
   return(
     <ul className={`flex gap-${gapNumber} ${orientation}`}>
       {
@@ -23,8 +26,8 @@ function MenuLinks({links, isVertical, gapNumber}:menuLinkProps){
           const { label, path } = link
 
           return(
-            <li key={`link_${index}`}>
-              <a href={path}>
+            <li key={`link_${index}`} onClick={() => setActive(index) }>
+              <a href={path} className={`${active === index ? "text-primary-300" : ""} hover:text-primary-300 transition-colors duration-200`}>
                 {label}
               </a>
             </li>

@@ -26,6 +26,7 @@ const myLinks: LinkEl[] = [
 function Navbar(){
 
   const flexBetween = "flex items-center justify-between"
+  const [ activeLink, setActiveLink] = useState(0)
 
   return(
     <nav className={`fixed top-0 z-30 w-full py-6 bg-slate-500`}>
@@ -37,19 +38,29 @@ function Navbar(){
             <li><img src={Logo} alt="logo" /></li>
           </ul>
 
-
           {/* <ul><li></li></ul> */}
-          <MenuLinks links={myLinks} isVertical={false} gapNumber={6}/>
-          
-
+          <MenuLinks 
+            links={myLinks} 
+            isVertical={false} 
+            gapNumber={6}
+            active={activeLink}
+            setActive={setActiveLink}
+          />
         </li>
-
-        
 
         <li className={`${flexBetween} gap-6`}>
-          <li className="">Login</li>
-          <Btn label="Inscreva-se" style={{border:'rounded-md', color:'bg-seccondary-500', hoverEffect:'', py: 'py-1', px:"px-12"}} onClick={undefined} />
+          <ul className="">
+            <li>
+              Login
+            </li>
+          </ul>
+            <Btn 
+              label="Inscreva-se" 
+              style={{border:'rounded-md', color:'bg-seccondary-500', hoverEffect:'hover:bg-seccondary-400', py: 'py-1', px:"px-12"}} 
+              onClick={undefined} 
+            />
         </li>
+
       </ul>
 
     </nav>
