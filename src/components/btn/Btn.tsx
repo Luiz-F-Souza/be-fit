@@ -9,15 +9,16 @@ interface BtnProps {
     border: 'rounded-none' | 'rounded-md'| 'rounded-full',
     hoverEffect: "hover:bg-seccondary-400" | "hover:bg-seccondary-500"
   },
-  onClick: Function | undefined
+  onClick: () => void
 }
 
 function Btn({label, onClick, style}: BtnProps){
 
+  
   const styleProps = Object.values({...style}).join(' ')
 
   return(
-    <button className={`${styleProps} transition-colors duration-300`}>{label}</button>
+    <button className={`${styleProps} transition-colors duration-300`} onClick={() => onClick()}>{label}</button>
   )
 }
 

@@ -19,7 +19,7 @@ function MenuLinks({links, isVertical, gapNumber, active, setActive}:menuLinkPro
 
   
   return(
-    <ul className={`flex gap-${gapNumber} ${orientation}`}>
+    <ul className={`flex gap-${gapNumber} ${orientation} items-center`}>
       {
         links.map((link, index) => {
 
@@ -27,7 +27,7 @@ function MenuLinks({links, isVertical, gapNumber, active, setActive}:menuLinkPro
 
           return(
             <li key={`link_${index}`} onClick={() => setActive(index) }>
-              <a href={path} className={`${active === index ? "text-primary-300" : ""} hover:text-primary-300 transition-colors duration-200`}>
+              <a href={path} className={`${active === index ? "text-primary-500" : ""} hover:text-primary-500 transition-colors duration-200`}>
                 {label}
               </a>
             </li>
