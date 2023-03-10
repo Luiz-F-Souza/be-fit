@@ -9,7 +9,7 @@ import { Btn } from "../btn/Btn"
 const myLinks: LinkEl[] = [
   {
     label:'Início',
-    path: '#'
+    path: '#home'
   },
   {
     label:'Benefícios',
@@ -35,6 +35,9 @@ function Navbar(){
 
   const [ isMobile, setIsMobile ] = useState(false)
 
+  const [ isAtTheTop, setIsAtTheTop ] = useState(true)
+
+
   const mediaQuery = '(max-width: 830px)'
   const mobileClass = `absolute flex-col w-8/12 bg-primary-100 top-0 ${showMobileMenu ? "right-0" : "-right-full"} h-screen transition-all duration-300 `
   const iconsClass = `z-50 hover:cursor-pointer bg-seccondary-500 rounded-full p-1 text-white hover:bg-primary-500 transition-color duration-300`
@@ -48,7 +51,16 @@ function Navbar(){
     windowSizeEvent()
     window.addEventListener('resize', windowSizeEvent)
 
-    return () => window.removeEventListener('resize', windowSizeEvent)
+    const handleScroll = () => {
+      window.scrollY < 50 ? setIsAtTheTop(true) : setIsAtTheTop(false)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('resize', windowSizeEvent)
+      window.removeEventListener('scroll', handleScroll)
+    }
 
   },[])
 
@@ -56,7 +68,7 @@ function Navbar(){
     
 
   return(
-    <nav className={`fixed top-0 z-30 w-full py-6 `}>
+    <nav className={`fixed top-0 z-30 w-full py-6 ${ isAtTheTop ?  "" : "bg-primary-100 drop-shadow"} transition-colors duration-300 z-50`}>
 
       <ul className={`flex items-center justify-between px-12 gap-6`}>
 
@@ -73,7 +85,7 @@ function Navbar(){
           <XMarkIcon width={36} height={36} className={iconsClass} onClick={() => setShowMobileMenu(false)}/>
         }
         
-        <li className={`flex items-center  ${ !isMobile ? "justify-between" : 'justify-center'} gap-6 w-full ${isMobile ? mobileClass : ''} `}>
+        <li className={`flex items-center   ${ !isMobile ? "justify-between" : 'justify-center'} gap-6 w-full ${isMobile ? mobileClass : ''} `}>
           {/* <ul><li></li></ul> */}
           <MenuLinks 
             links={myLinks} 
@@ -90,7 +102,7 @@ function Navbar(){
             
             <Btn 
               label="Inscreva-se" 
-              style={{border:'rounded-md', color:'bg-seccondary-500', hoverEffect:'hover:bg-seccondary-400', py: 'py-1', px:"px-12"}} 
+              style={{border:'rounded-md', color:'bg-seccondary-500', hoverEffect:'hover:bg-seccondary-400 hover:cursor-pointer', py: 'py-1', px:"px-12", textColor:''}} 
               onClick={() => console.log('btn inscreva-se')} 
             />
           </ul>
