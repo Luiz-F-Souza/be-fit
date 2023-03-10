@@ -1,21 +1,28 @@
-// import SponsorRedBull from '../../assets/SponsorRedBull.png'
-// import SponsorForbes from '../../assets/SponsorForbes.png'
-// import SponsorFortune from '../../assets/SponsorFortune.png'
 
 
-// interface sponsorsProps {
-//   imgSrc: string,
-//   altText: string,
-//   style: string
-// }
+interface sponsorsProps {
+  imgDimensions: number
+  sponsors:{
+    imgSrc: string,
+    SponsorName: string,
+  }[],
+  sectionStyle: string
+}
 
-// function Sponsors({imgSrc, altText, style}: sponsorsProps){
+function Sponsors({imgDimensions, sponsors, sectionStyle}: sponsorsProps){
 
-//   return(
-//     <section className={style}>
-//       <img src={imgSrc} alt={altText}/>
-//     </section>
-//   )
-// }
+  return(
+    <section className={sectionStyle}>
+      {
+        sponsors.map(sponsor => {
+          const { imgSrc, SponsorName } = sponsor
+          return(
+            <img src={imgSrc} alt={`Logo patrocinador: ${SponsorName}`} width={imgDimensions} height={imgDimensions} key={`logo_sponsor_${SponsorName}`}/>
+          )
+        })
+      } 
+    </section>
+  )
+}
 
-// export { Sponsors }
+export { Sponsors }

@@ -6,6 +6,7 @@ import SponsorRedBull from '../../assets/SponsorRedBull.png'
 import SponsorForbes from '../../assets/SponsorForbes.png'
 import SponsorFortune from '../../assets/SponsorFortune.png'
 import { motion } from 'framer-motion'
+import { Sponsors } from '../../components/Sponsors/Sponsors'
 
 
 
@@ -83,12 +84,19 @@ function Home(){
           <img src={HomePageGraphic} alt="mulher com roupa de academia e bem treinada."  className='w-5/6'/>
         </section>
       </div>
-
-      <section className='gap-8 py-6 px-12 hidden sm:flex bg-primary-100'>
-        <img src={SponsorRedBull} alt='logo patrocinador: RedBull' width={80} height={80}/>
-        <img src={SponsorForbes} alt='logo patrocinador: Forbes' width={80} height={80}/>
-        <img src={SponsorFortune} alt='logo patrocinador: Fortune' width={80} height={80}/>
-      </section>
+      
+      {/* SECTION */}
+      <Sponsors 
+        imgDimensions={80} 
+        sectionStyle="gap-8 py-6 px-12 hidden sm:flex bg-primary-100" 
+        sponsors={
+          [
+            {imgSrc: SponsorRedBull, SponsorName: "RedBull"},
+            {imgSrc: SponsorForbes, SponsorName: "Forbes"},
+            {imgSrc: SponsorFortune, SponsorName: "Fortune"}
+          ]
+        }
+      />
     </article>
   )
 }
