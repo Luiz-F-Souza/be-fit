@@ -1,4 +1,5 @@
 import { Navbar } from "./components/navbar/Navbar"
+import { Benefits } from "./scenes/benefits/Benefits"
 import { Home } from "./scenes/home/Home"
 
 
@@ -12,9 +13,13 @@ function App() {
         <Navbar />
       </header>
 
-      <article>
+      <main className="mb-4">
         <Home />
-      </article>
+
+        <Benefits />
+      </main>
+
+
     </div>
   )
 }
