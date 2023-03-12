@@ -13,7 +13,7 @@ import { Sponsors } from '../../components/Sponsors/Sponsors'
 function Home(){
 
   return(
-    <article id="home" >
+    <article id="home" className='mb-8' >
       
       <div className='flex flex-col sm:flex-row items-center w-full  justify-center h-full pb-12 px-12 '>
         

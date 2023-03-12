@@ -8,14 +8,17 @@ function App() {
 
 
   return (
-    <div className="app min-h-screen relative">
+    <div className="app min-h-screen relative min-h-[300vh]">
       <header className="pb-24 md:pb-40">
         <Navbar />
       </header>
 
       <main className="mb-4">
+
+        {/* Article */}
         <Home />
 
+        {/* Article */}
         <Benefits />
       </main>
 

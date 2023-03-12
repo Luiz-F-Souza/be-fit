@@ -1,4 +1,4 @@
-
+import { motion } from "framer-motion"
 
 
 interface iconCardsProps {
@@ -13,14 +13,23 @@ interface iconCardsProps {
 function IconCards({cards}: iconCardsProps){
 
   return(
-    <article className='grid sm:grid-cols-3 gap-4'>
+    <motion.article className='grid sm:grid-cols-3 gap-4' 
+    initial="lower" 
+    whileInView='normal' 
+    viewport={{ once: true, amount:0.5 }} 
+    transition={{ duration: 1 }} 
+    variants={{ 
+      lower: {}, 
+      normal: {transition: {staggerChildren: .75}}
+      }}
+    >
       {
         cards.map(( card, index ) => {
           const { icon, title, body, actionBtn } = card
 
         
           return(
-            <section className="justify-self-center text-center p-4 px-32 sm:px-2 sm:py-8 border-2 border-gray-300 border-solid w-full h-full sm:min-h-[20rem] flex flex-col justify-between" key={`card_${index}`}>
+            <motion.section variants={{ lower: { opacity:0, scale:0.85}, normal: { opacity:1, scale:1}}} className="justify-self-center text-center p-4 px-4 sm:px-8 sm:py-8 border-2 border-gray-300 border-solid w-full h-full sm:min-h-[20rem] flex flex-col justify-between rounded-md" key={`card_${index}`}>
               
               <section className="grid align-middle">
                 <div className="flex justify-center">
@@ -37,11 +46,11 @@ function IconCards({cards}: iconCardsProps){
                 {actionBtn}
               </section>
 
-            </section>
+            </motion.section>
           )
         })
       }
-    </article>
+    </motion.article>
   )
 }
 
