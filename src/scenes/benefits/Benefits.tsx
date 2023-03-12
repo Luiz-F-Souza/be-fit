@@ -87,7 +87,7 @@ function Benefits(){
           </motion.div>
           
 
-          <div className="relative sm:before:content-sparkles before:absolute before:-top-5 before:left-2/4 before:-z-10">
+          <div className="relative sm:before:content-sparkles before:absolute before:-top-5 before:left-2/4 before:-z-10 mb-8">
             <Btn 
               label="Faça parte"
               onClick={() => console.log('faça parte btn')} 
