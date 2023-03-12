@@ -8,16 +8,16 @@ interface iconCardsProps {
     body: string,
     actionBtn: JSX.Element
   }[],
-  
+  containerStyle?: string
 }
-function IconCards({cards}: iconCardsProps){
+function IconCards({cards, containerStyle}: iconCardsProps){
 
   return(
-    <motion.article className='grid sm:grid-cols-3 gap-4' 
+    <motion.article className={`grid sm:grid-cols-3 gap-4 ${containerStyle}`}
     initial="lower" 
     whileInView='normal' 
     viewport={{ once: true, amount:0.5 }} 
-    transition={{ duration: 1 }} 
+    transition={{ duration: .75 }} 
     variants={{ 
       lower: {}, 
       normal: {transition: {staggerChildren: .75}}
