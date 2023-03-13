@@ -1,5 +1,6 @@
 import { Navbar } from "./components/navbar/Navbar"
 import { Benefits } from "./scenes/benefits/Benefits"
+import { ContactUs } from "./scenes/contact-us/ContactUs"
 import { Home } from "./scenes/home/Home"
 import { OurClasses } from "./scenes/our-classes/OurClasses"
 
@@ -24,6 +25,9 @@ function App() {
 
         {/* Article */}
         <OurClasses />
+
+        {/* Article */}
+        <ContactUs />
       </main>
 
 
