@@ -11,6 +11,7 @@
 - React Anchor Link Smooth Scroll
 - Hero Icons
 - ==Tailwind==
+- React Hook Form
 
 ###Instalações
 1. `npm create vite@latest`
@@ -23,6 +24,7 @@
 6. `npm install -D @types/node`
 7. `npm install -D tailwindcss postcss autoprefixer`
 7.1 `npx tailwindcss init -p`
+8. `npm i react-hook-form`
 
 ###Dicas
 - Verificar se a extensão “ES7+ React/Redux/React-Native snippets” está instalada no VSCode
