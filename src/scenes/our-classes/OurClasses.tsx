@@ -9,7 +9,7 @@ import { ScrollXImages } from '../../components/scroll-x-images/ScrollXImages'
 function OurClasses(){
 
   return(
-    <article className="bg-primary-100 py-24 w-full">
+    <article className="bg-primary-100 py-24 w-full mb-8">
 
       <section className='px-12 mb-4'>
         <h3 className="font-bold text-3xl mb-4">NOSSAS TURMAS</h3>
