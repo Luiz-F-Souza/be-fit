@@ -1,6 +1,7 @@
 import { Navbar } from "./components/navbar/Navbar"
 import { Benefits } from "./scenes/benefits/Benefits"
 import { ContactUs } from "./scenes/contact-us/ContactUs"
+import { Footer } from "./scenes/footer/Footer"
 import { Home } from "./scenes/home/Home"
 import { OurClasses } from "./scenes/our-classes/OurClasses"
 
@@ -30,6 +31,7 @@ function App() {
         <ContactUs />
       </main>
 
+      <Footer />
 
     </div>
   )
